@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -40,6 +44,7 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>genererDot();</script>
 </body>
 
 </html>
