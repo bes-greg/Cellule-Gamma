@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+    color: #FAFAFA;
+    letter-spacing: -0.01em;
+    scroll-behavior: smooth;
+    background-color: #050808;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.04em;
+}
+
+header,
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 80%;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #dadada;
+}
+
+#gallery,
+#dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 50px;
+    border: 1px solid #FAFAFA;
+    border-radius: 30px;
+    padding: 60px 30px;
+    max-height: 65vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.gallery-item {
+    overflow: hidden;
+    max-width: 70%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.divGallerie {
+    width: 80%;
+    margin: 20px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-item h4 {
+    font-size: 20px;
+}
+
+.gallerieP {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    color: #dadada;
+}
+
+.galleriePDate {
+    font-style: italic;
+    font-family: 'Cascadia Mono', monospace;
+    font-size: 16px;
+}
+
+.galleriePAstro {
+    font-weight: 400;
+    font-family: 'Cascadia Mono', monospace;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../svg/dotGrid.svg');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loadingScreen h1 {
+    font-size: 60px;
+    padding: 10px 40px;
+    position: relative;
+    background-color: transparent;
+    color: #fff;
+}
+
+.loadingScreen h1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    padding: 4px;
+    background: linear-gradient(var(--angle), #ff631b, #ffdfa3);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotationGradient 3s linear infinite;
+}
+
+@keyframes rotationGradient {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
