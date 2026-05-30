@@ -39,6 +39,7 @@
         <h1>Aurora.</h1>
     </div>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>

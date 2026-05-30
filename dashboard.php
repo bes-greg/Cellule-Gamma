@@ -19,7 +19,8 @@
 
     <?php require_once 'includes/footer.php'; ?>
 
-
+    <script src="js/script.js"></script>
+    <script>loadDashboard();</script>
 </body>
 
 </html>

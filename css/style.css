@@ -51,11 +51,27 @@ a:hover {
     color: #dadada;
 }
 
-#gallery,
-#dashboard {
+#gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    padding: 20px 50px;
+    border: 1px solid #FAFAFA;
+    border-radius: 30px;
+    padding: 60px 30px;
+    max-height: 65vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+
+#dashboard {
     padding: 20px 50px;
     border: 1px solid #FAFAFA;
     border-radius: 30px;
@@ -84,8 +100,10 @@ a:hover {
     object-fit: cover;
 }
 
-.divGallerie {
+.divGallerie,
+.divDashboard {
     width: 80%;
+    max-width: 1400px;
     margin: 20px auto 20px auto;
     display: flex;
     flex-direction: column;
@@ -125,20 +143,25 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../svg/dotGrid.svg');
+    background: #050808;
+    background-image: radial-gradient(rgba(72, 72, 72, .5) 1.15px, transparent 2px);
+    background-size: 30px 30px;
     background-repeat: repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 100;
 }
 
 .loadingScreen h1 {
     font-size: 60px;
     padding: 10px 40px;
     position: relative;
-    background-color: transparent;
+    background-color: #050808;
     color: #fff;
+    font-weight: 550;
+    z-index: 1001;
+
 }
 
 .loadingScreen h1::before {
@@ -147,13 +170,56 @@ h1 {
     inset: 0;
     border-radius: 30px;
     padding: 4px;
-    background: linear-gradient(var(--angle), #ff631b, #ffdfa3);
+    background: conic-gradient(from var(--angle), #ff631b, #ffdfa3, #ff631b, #85330e, #ff631b);
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: rotationGradient 3s linear infinite;
+    animation: rotationGradient 5s linear infinite;
+}
+
+.dot {
+    width: 2px;
+    height: 150px;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.dotLight {
+    background: linear-gradient(0deg, rgba(255, 223, 163, 0.8), rgba(255, 99, 27, 0));
+}
+
+.dotPrimary {
+    background: linear-gradient(0deg, rgba(255, 99, 27, 0.8), rgba(133, 51, 14, 0));
+}
+
+.dotDark {
+    background: linear-gradient(0deg, rgba(133, 51, 14, 0.8), rgba(133, 51, 14, 0));
+}
+
+.card {
+    font-family: 'Cascadia Mono', monospace;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-date,
+.card-status,
+.card-description {
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.card-status span,
+.card-description span,
+.card-date span {
+    color: #ffdfa3
 }
 
 @keyframes rotationGradient {
