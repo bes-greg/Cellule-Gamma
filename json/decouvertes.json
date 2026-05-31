@@ -1,0 +1,26 @@
+{
+    "0": {
+        "titre": "Anomalie radioélectrique stable",
+        "date": "29/05/2026",
+        "url": "images/icon.png",
+        "descriptions": {
+            "0": "Le Centre de Contrôle Aurora (CCA) annonce aujourd'hui la détection et la caractérisation physique d'une anomalie radioélectrique majeure et stable, localisée dans le quadrant Nord-Est de lexoplanète Kepler-452c. Cette observation, validée de manière indépendante par les instruments de télédétection du vaisseau et confirmée par une sortie extra-véhiculaire (EVA-01), marque une étape significative dans notre étude de l'exo-monde.",
+            "1": "Le signal, capté à une fréquence centrale de 1420.40 MHz, correspondant précisément à la raie de transition de l'hydrogène neutre, présente une périodicité rigoureuse d'impulsions modulées toutes les 4,12 secondes.Les relevés thermiques et magnétiques de proximité, récoltés lors de l'inspection directe des capteurs du mât de télécommunication, confirment une source stable, fixe et hautement localisée sous la couche atmosphérique supérieure.",
+            "2": "La cellule scientifique du CCA maintient une approche rigoureuse et factuelle face à ces données inédites. Les premières modélisations physiques s’orientent vers des mécanismes naturels de haute énergie, tels une interaction ionique permanente induite par les récentes tempêtes solaires, ou une activité géologique piézoélectrique de grande ampleur au sein de la croûte planétaire."
+        },
+        "Q/A": {
+            "0": {
+                "q": "Est-ce que cela prouve l'existence d'une vie extraterrestre ?",
+                "r": "Non. Les données actuelles ne permettent pas d'étayer cette hypothèse. Les analyses s'orientent vers des causes naturelles : activité géologique, décharges piézoélectriques dans la croûte de Kepler-452c, ou interactions ioniques dans la haute atmosphère."
+            },
+            "1": {
+                "q": "Pourquoi ce signal est-il si régulier si c'est un phénomène naturel ?",
+                "r": " La périodicité n'est pas synonyme d'intelligence. De nombreux phénomènes naturels produisent des cycles parfaitement réguliers : les pulsars, les rotations planétaires, certaines activités sismiques... La régularité observée est remarquable, mais pas inexplicable"
+            },
+            "2": {
+                "q": "Quelles sont les prochaines étapes ?",
+                "r": "Les équipes du CCA procèdent à une corrélation des spectres radio avec l'imagerie de surface. Les conclusions seront partagées publiquement dès validation par notre comité d'experts internationaux."
+            }
+        }
+    }
+}

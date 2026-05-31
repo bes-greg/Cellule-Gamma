@@ -55,7 +55,8 @@ a:hover {
     color: #dadada;
 }
 
-#gallery {
+#gallery,
+#decouvertes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -65,6 +66,7 @@ a:hover {
     padding: 60px 30px;
     max-height: 65vh;
     overflow-y: auto;
+    position: relative;
 
     &::-webkit-scrollbar {
         display: none;
@@ -74,6 +76,129 @@ a:hover {
     -ms-overflow-style: none;
 }
 
+.modalDecouvertes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 8, 8, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    height: 70vh;
+    background-color: #050808;
+    border: 1px solid #FAFAFA;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-content img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    border-radius: 30px 0 0 30px;
+}
+
+.modal-texts {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    flex: 1;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-description {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.modal-faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.faq-item {
+    border: 1px solid #FAFAFA;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #050808;
+    transition: background-color 0.2s ease;
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: 400;
+    color: #FAFAFA;
+    background-color: transparent;
+}
+
+.faq-arrow {
+    font-size: 14px;
+    color: #FAFAFA;
+    background-color: transparent;
+    user-select: none;
+}
+
+.faq-body {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    background-color: transparent;
+    transition: max-height 0.25s ease-out;
+    border-top: 0 solid transparent;
+}
+
+.faq-reponse {
+    padding: 0px 30px 25px 30px;
+    font-size: 16px;
+    color: #FAFAFA;
+    background-color: transparent;
+    line-height: 1.5;
+}
+
+
+.faq-item.open {
+    background-color: #050808;
+}
+
+.faq-item.open .faq-body {
+    max-height: 500px !important;
+    border-top: 1px solid #FAFAFA !important;
+}
+
+.faq-item.open .faq-reponse {
+    padding-top: 25px;
+}
 
 #dashboard {
     padding: 20px 50px;
@@ -98,14 +223,24 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item img {
+.decouvertes-item {
+    overflow: hidden;
+    max-width: 70%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.gallery-item img,
+.decouvertes-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .divGallerie,
-.divDashboard {
+.divDashboard,
+.divDecouv {
     width: 80%;
     max-width: 1400px;
     margin: 20px auto 20px auto;
@@ -333,6 +468,17 @@ h1 {
     font-size: 14px;
 }
 
+.closeButtonDecouvertes {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #dadada;
+}
+
 .close-button {
     margin-left: auto;
     background-color: transparent;
@@ -341,11 +487,12 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     transition-duration: 0.2s;
-    20Gry*06
+    color: #dadada;
 }
 
-.close-button:hover {
-    color: #dadada;
+.close-button:hover,
+.closeButtonDecouvertes:hover {
+    color: #fafafa;
 }
 
 .alert-icon {

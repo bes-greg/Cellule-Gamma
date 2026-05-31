@@ -36,6 +36,45 @@ function genererDot() {
     setTimeout(genererDot, prochainDelai);
 }
 
+function loadGalerie() {
+    fetch('json/galerie.json')
+        .then(response => response.json())
+        .then(data => {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            Object.values(data).forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+
+                const img = document.createElement('img');
+                img.src = item.url;
+                img.alt = item.titre;
+
+                const title = document.createElement('h4');
+                title.textContent = item.titre;
+
+                const divP = document.createElement('div');
+                divP.classList.add('gallerieP');
+
+                const author = document.createElement('p');
+                author.classList.add('galleriePAstro');
+                author.innerHTML = `${item.auteur || 'Auteur inconnu'}`;
+
+                const date = document.createElement('p');
+                date.classList.add('galleriePDate');
+                date.innerHTML = `${item.date}`;
+
+                divP.appendChild(author);
+                divP.appendChild(date);
+
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(title);
+                galleryItem.appendChild(divP);
+                gallery.appendChild(galleryItem);
+            });
+        })
+        .catch(error => console.error('Erreur lors du chargement de la galerie :', error));
+}
 
 function loadDashboard() {
     fetch('json/dashboard.json')
@@ -167,3 +206,149 @@ function loadAlertes(connected = false) {
         })
         .catch(error => console.error('Erreur lors du chargement des alertes :', error));
 }
+
+
+function loadDecouvertes() {
+    fetch('json/decouvertes.json')
+        .then(response => response.json())
+        .then(data => {
+            const decouvertes = document.getElementById('decouvertes');
+            decouvertes.innerHTML = '';
+
+            Object.values(data).forEach(item => {
+                const decouvertesItem = document.createElement('div');
+                decouvertesItem.classList.add('decouvertes-item');
+
+                const img = document.createElement('img');
+                img.src = item.url;
+                img.alt = item.titre;
+
+                const title = document.createElement('h4');
+                title.textContent = item.titre;
+
+                const divP = document.createElement('div');
+                divP.classList.add('gallerieP');
+
+
+
+                const date = document.createElement('p');
+                date.classList.add('galleriePDate');
+                date.innerHTML = `${item.date}`;
+
+                divP.appendChild(date);
+
+                decouvertesItem.appendChild(img);
+                decouvertesItem.appendChild(title);
+                decouvertesItem.appendChild(divP);
+                decouvertes.appendChild(decouvertesItem);
+                decouvertesItem.addEventListener('click', () => {
+                    const modal = document.createElement('div');
+                    modal.classList.add('modalDecouvertes');
+
+                    const modalContent = document.createElement('div');
+                    modalContent.classList.add('modal-content');
+
+                    const closeButton = document.createElement('span');
+                    closeButton.classList.add('closeButtonDecouvertes');
+                    closeButton.innerHTML = '&times;';
+                    closeButton.addEventListener('click', () => {
+                        modal.remove();
+                    });
+
+                    const imgModal = document.createElement('img');
+                    imgModal.src = item.url;
+                    imgModal.alt = item.titre;
+
+                    const divTexts = document.createElement('div');
+                    divTexts.classList.add('modal-texts');
+
+                    const titleModal = document.createElement('h2');
+                    titleModal.classList.add('modal-title');
+                    titleModal.textContent = item.titre;
+
+                    modalContent.appendChild(closeButton);
+                    modalContent.appendChild(imgModal);
+                    divTexts.appendChild(titleModal);
+                    let divDesc = document.createElement('div');
+                    if (item.descriptions) {
+                        Object.values(item.descriptions).forEach(paragraphText => {
+                            const p = document.createElement('p');
+                            p.classList.add('modal-description');
+                            p.textContent = paragraphText;
+                            p.style.marginBottom = "5px";
+                            divDesc.appendChild(p);
+                        });
+                    }
+
+                    divTexts.appendChild(divDesc);
+
+                    if (item["Q/A"]) {
+                        // 1. Créer un conteneur global pour la FAQ à l'intérieur de la modale
+                        const faqContainer = document.createElement('div');
+                        faqContainer.classList.add('modal-faq-container');
+                        faqContainer.style.marginTop = "30px"; // Espace avec les paragraphes du dessus
+
+                        // 2. Parcourir les questions/réponses
+                        Object.values(item["Q/A"]).forEach(faqData => {
+                            const faqItem = document.createElement('div');
+                            faqItem.classList.add('faq-item');
+
+                            // L'en-tête (Question)
+                            const faqHeader = document.createElement('div');
+                            faqHeader.classList.add('faq-header');
+
+                            const questionText = document.createElement('span');
+                            questionText.classList.add('faq-question');
+                            questionText.textContent = `Q. “${faqData.q}”`; // Récupère le "q" du JSON
+
+                            const arrow = document.createElement('span');
+                            arrow.classList.add('faq-arrow');
+                            arrow.innerHTML = '&#9660;';
+
+                            faqHeader.appendChild(questionText);
+                            faqHeader.appendChild(arrow);
+
+                            // Le corps (Réponse)
+                            const faqBody = document.createElement('div');
+                            faqBody.classList.add('faq-body');
+
+                            const reponseText = document.createElement('p');
+                            reponseText.classList.add('faq-reponse');
+                            reponseText.textContent = `R. “${faqData.r}”`; // Récupère le "r" du JSON
+
+                            faqBody.appendChild(reponseText);
+                            faqItem.appendChild(faqHeader);
+                            faqItem.appendChild(faqBody);
+                            faqContainer.appendChild(faqItem);
+
+                            // Logique d'ouverture au clic
+                            faqHeader.addEventListener('click', (e) => {
+                                e.stopPropagation(); // Évite que le clic ferme la modale par erreur
+                                const isOpen = faqItem.classList.contains('open');
+
+                                // Ferme les autres questions du même bloc
+                                faqContainer.querySelectorAll('.faq-item').forEach(el => {
+                                    el.classList.remove('open');
+                                    el.querySelector('.faq-arrow').innerHTML = '&#9660;';
+                                });
+
+                                if (!isOpen) {
+                                    faqItem.classList.add('open');
+                                    arrow.innerHTML = '&#9650;';
+                                }
+                            });
+                        });
+
+                        // Injecter la FAQ dans la zone de texte de la modale
+                        divTexts.appendChild(faqContainer);
+                    }
+                    modalContent.appendChild(divTexts);
+                    modal.appendChild(modalContent);
+                    decouvertes.appendChild(modal);
+                });
+            })
+                .catch(error => console.error('Erreur lors du chargement des découvertes :', error));
+
+        });
+}
+
