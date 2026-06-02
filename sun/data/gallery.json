@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "src": "./images/IMG3.png",
+    "sizeClass": "-big",
+    "directionClass": "horizontal",
+    "speed": 2,
+    "location": "Espace",
+    "date": "2026.05.12",
+    "astronaut": "Dr. E. Silva"
+  },
+  {
+    "id": 2,
+    "src": "./images/IMG4.png",
+    "sizeClass": "-small",
+    "directionClass": "",
+    "speed": 1,
+    "location": "Secteur 7",
+    "date": "2026.05.14",
+    "astronaut": "Spc. T. Wong"
+  },
+  {
+    "id": 3,
+    "src": "./images/IMG2.png",
+    "sizeClass": "-normal",
+    "directionClass": "-horizontal",
+    "speed": 4,
+    "location": "Valée d'Aurélia",
+    "date": "2026.05.23",
+    "astronaut": "Lt. A. Laurent"
+  },
+  {
+    "id": 4,
+    "src": "./images/IMG1.png",
+    "sizeClass": "-big",
+    "directionClass": "",
+    "speed": 3,
+    "location": "Valée d'Aurélia",
+    "date": "2079.05.22",
+    "astronaut": "Lt. A. Laurent"
+  },
+
+  {
+    "id": 5,
+    "src": "./images/IMG5.png",
+    "sizeClass": "-small",
+    "directionClass": "",
+    "speed": 2,
+    "location": "Secteur 7",
+    "date": "2026.05.12",
+    "astronaut": "Lt. A. Laurent"
+  },
+  {
+    "id": 6,
+    "src": "./images/IMG6.png",
+    "sizeClass": "-big",
+    "directionClass": "horizontal",
+    "speed": 1,
+    "location": "Espace",
+    "date": "2026.05.14",
+    "astronaut": "Dr. E. Silva"
+  }
+]

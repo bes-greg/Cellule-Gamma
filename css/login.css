@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+    color: #FAFAFA;
+    letter-spacing: -0.01em;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #050808;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.04em;
+}
+
+header,
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    width: 100%;
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #dadada;
+}
+
+.divForm {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 30px;
+    border: 1px solid #FAFAFA;
+    border-radius: 30px;
+    width: 100%;
+    background-color: #050808;
+}
+
+.blocInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formLogin input {
+    padding: 12px 15px;
+    border: 1px solid #FAFAFA;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #FAFAFA;
+    width: 100%;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.formLogin input:focus {
+    outline: none;
+    border-color: #ffdfa3;
+}
+
+
+@media (max-width: 1024px) {
+
+    header,
+    footer {
+        padding: 20px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header,
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .divForm {
+        min-height: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .divForm h1 {
+        font-family: 'Cascadia Mono', monospace;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        letter-spacing: -0.02em;
+    }
+
+    .formLogin {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+}

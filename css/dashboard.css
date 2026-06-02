@@ -1,0 +1,106 @@
+.divDashboard {
+    width: 80%;
+    max-width: 1400px;
+    margin: 120px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#dashboard {
+    padding: 20px 50px;
+    border: 1px solid #FAFAFA;
+    border-radius: 30px;
+    padding: 60px 30px;
+    max-height: 65vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.card-separator {
+    border: none;
+    border-top: 1px dashed rgba(250, 250, 250, 0.3);
+    width: 100%;
+    margin: 0;
+}
+
+.card {
+    font-family: 'Cascadia Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-date,
+.card-status,
+.card-description {
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.card-status span,
+.card-description span,
+.card-date span {
+    color: #ffdfa3
+}
+
+@media (max-width: 1024px) {
+
+    header,
+    footer {
+        padding: 20px 5%;
+    }
+
+    .divDashboard {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header,
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #dashboard {
+        padding: 30px 15px;
+        border-radius: 20px;
+        gap: 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-date,
+    .card-status,
+    .card-description {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}
