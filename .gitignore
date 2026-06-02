@@ -1,0 +1,25 @@
+# Dossiers de dépendances
+node_modules/
+vendor/
+.venv/
+env/
+
+# Variables d'environnement (TRÈS IMPORTANT)
+.env
+.env.local
+config.php # si contient des mots de passe
+
+# Logs et temporaires
+*.log
+npm-debug.log*
+tmp/
+.cache/
+
+# Fichiers système et IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Dossiers de build (si tu utilises React, Vue, etc.)
+dist/
+build/
